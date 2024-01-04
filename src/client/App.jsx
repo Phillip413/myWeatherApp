@@ -1,17 +1,26 @@
+//Importing hooks and React Router 
 import { useState } from "react";
+import { Routes, Route, Link} from 'react-router-dom'
 import "./App.css";
-import Register from "./components/Register";
-import Login from "./components/Login";
+
+//Importing Components
+import Home from './components/Home'
+import Navigations from './components/Navigations'
+import Forecast from './components/Forecast'
+import History from './components/History'
 
 function App() {
   const [count, setCount] = useState(0);
 
   return (
-    <div className="App">
-      <h1>My App</h1>
-      <Login />
-      <Register />
-    </div>
+    <>
+      <Navigations />
+      <Routes>
+        <Route path = "/" element={<Home />}></Route>
+        <Route path = "/forecast" element={<Forecast />}></Route>
+        <Route path = "/history" element={<History />}></Route>
+      </Routes>
+    </>
   );
 }
 
