@@ -1,4 +1,4 @@
-import {Link} from 'react-router-dom'
+import {Link} from "react-router-dom"
 
 function Navigations() {
 
@@ -9,11 +9,11 @@ function Navigations() {
           <div>
             <h1>Weatheria</h1>
           </div>
-          <div className="nav-items">
-            <li><Link to = '/'>TODAY</Link></li>
-            <li><Link to = '/forecast'>3-DAY</Link></li>
-            <li><Link to = '/history'>HISTORY</Link></li>
-          </div>
+          <nav className="nav-items">
+            <li><Link to = "/" className="nav-link">TODAY</Link></li>
+            <li><Link to = "/forecast" className="nav-link">FORECAST</Link></li>
+            <li><Link to = "/history" className="nav-link">HISTORY</Link></li>
+          </nav>
         </ul>
       </nav>
     </>
