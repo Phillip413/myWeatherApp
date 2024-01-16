@@ -12,10 +12,15 @@ import History from './components/History'
 // URL for my localhost
 let myAPI = "http://localhost:3000/api/appKey"
 
+// third party api url
+// let weatherAPI_URL = "https://api.weatherapi.com/v1"
+
 function App() {
 
   const [apiKey, setApiKey] = useState("")
   const [errorCheck, setErrorCheck] = useState(null)
+
+  // maybe need to add useState variables here at top level (location, searchCityName)
 
   // useEffect to grab third party api access key from .env through backend
   useEffect(() => {
@@ -32,12 +37,16 @@ function App() {
     }
   }
 
+  // maybe move handleSubmit function here
+
   return (
     <>
       <Navigations />
 
+      {/* maybe have to bring controlled form here before the Routes? */}
+
       <Routes>
-        <Route path = "/" element={<Home apiKey={apiKey}/>}></Route>
+        <Route path = "/" element={<Home apiKey={apiKey} location={location}/>}></Route>
         <Route path = "/forecast" element={<Forecast apiKey={apiKey}/>}></Route>
         <Route path = "/history" element={<History apiKey={apiKey}/>}></Route>
       </Routes>
