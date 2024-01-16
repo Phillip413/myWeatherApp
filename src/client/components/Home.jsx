@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
-import { useNavigate } from "react-router-dom"
 
+// third party api url
 let weatherAPI_URL = "https://api.weatherapi.com/v1"
 
 // TODAY
@@ -8,24 +8,21 @@ function Home (props) {
 
   const [current, setCurrent] = useState({})
   const [location, setLocation] = useState({})
-  const [searchCityName, setSearchCityName] = useState("")
   const [conditionText, setConditionText] = useState("")
+  const [searchCityName, setSearchCityName] = useState("")
   const [errorCheck, setErrorCheck] = useState(null)
 
   async function handleSubmit(event){
     event.preventDefault()
     
-    try{
+    try {
       let response = await fetch (`${weatherAPI_URL}/current.json?key=${props.apiKey}&q=${searchCityName}&aqi=no`)
       let json = await response.json()
       
       setCurrent(json.current)
       setLocation(json.location)
       setConditionText(json.current.condition.text)
-
-      // console.log("json: ",json)
-      // console.log("json.current: ",json.current)
-      // console.log("json.location: ",json.location)
+      console.log(json)
 
     }catch(error){
       setErrorCheck(error)
@@ -45,9 +42,7 @@ function Home (props) {
        
         </form>
       </div>
-
       
-
       { location.name ? (
         <div>
           <h1>{location.name}</h1>
@@ -62,12 +57,8 @@ function Home (props) {
         <p>No Location Entered Yet!</p>
       )}
 
-      
-
-
     </>
   )
-
  
 }
 

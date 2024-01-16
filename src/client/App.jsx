@@ -13,7 +13,7 @@ import History from './components/History'
 let myAPI = "http://localhost:3000/api/appKey"
 
 function App() {
-  
+
   const [apiKey, setApiKey] = useState("")
   const [errorCheck, setErrorCheck] = useState(null)
 
@@ -35,6 +35,7 @@ function App() {
   return (
     <>
       <Navigations />
+
       <Routes>
         <Route path = "/" element={<Home apiKey={apiKey}/>}></Route>
         <Route path = "/forecast" element={<Forecast apiKey={apiKey}/>}></Route>

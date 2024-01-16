@@ -9,11 +9,11 @@ function Navigations() {
           <div>
             <h1>Weatheria</h1>
           </div>
-          <nav className="nav-items">
+          <div className="nav-items">
             <li><Link to = "/" className="nav-link">TODAY</Link></li>
             <li><Link to = "/forecast" className="nav-link">FORECAST</Link></li>
             <li><Link to = "/history" className="nav-link">HISTORY</Link></li>
-          </nav>
+          </div>
         </ul>
       </nav>
     </>
