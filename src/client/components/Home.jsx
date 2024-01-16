@@ -44,7 +44,7 @@ function Home (props) {
       </div>
       
       { location.name ? (
-        <div>
+        <div className="home_content">
           <h1>{location.name}</h1>
           <p>temperature: {current.temp_f} °F</p>
           <p>temperature: {current.temp_c} °C</p>
