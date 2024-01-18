@@ -22,6 +22,7 @@ function App() {
   // maybe need to add useState variables here at top level (location, searchCityName?)
   const [location, setLocation] = useState({})
   const [searchCityName, setSearchCityName] = useState("")
+  const [forecast, setForecast] = useState({})
 
   // useEffect to grab third party api access key from .env through backend
   useEffect(() => {
@@ -45,14 +46,17 @@ function App() {
   function updateSearchResults(newSearch) {
     setSearchCityName(newSearch)
   }
+  function updateForecast(newForecast) {
+    setForecast(newForecast)
+  }
 
   return (
     <>
       <Navigations />
 
       <Routes>
-        <Route path = "/" element={<Home apiKey={apiKey} location={location} updateLocation={updateLocation} searchCityName={searchCityName} updateSearchResults={updateSearchResults}/>}></Route>
-        <Route path = "/forecast" element={<Forecast apiKey={apiKey} location={location} updateLocation={updateLocation} searchCityName={searchCityName} updateSearchResults={updateSearchResults}/>}></Route>
+        <Route path = "/" element={<Home apiKey={apiKey} location={location} updateLocation={updateLocation} searchCityName={searchCityName} updateSearchResults={updateSearchResults}forecast={forecast} updateForecast={updateForecast}/>}></Route>
+        <Route path = "/forecast" element={<Forecast apiKey={apiKey} location={location} updateLocation={updateLocation} searchCityName={searchCityName} updateSearchResults={updateSearchResults} forecast={forecast} updateForecast={updateForecast}/>}></Route>
       </Routes>
     </>
   );
